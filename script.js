@@ -1,0 +1,1 @@
+const headerTag = document.querySelector('header');
