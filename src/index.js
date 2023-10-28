@@ -19,6 +19,16 @@ function mainComponents (){
                 <a class="mainNotes-btn" href="#notesPanel">Notes</a>
             </nav>
         `;
+        const allAnchor = Array.from(mainHeader.querySelectorAll('a'));
+        const mainNav = mainHeader.querySelector('.mainNav').addEventListener('click', function(e){
+            import('./command').then(module => {
+                module.removeClass(allAnchor);
+                module.changeNav(e, allAnchor)
+            }).catch(error => {
+                console.error('Error while importing module: ', error);
+            });
+        });
+
         return mainHeader; 
     }
 
@@ -32,6 +42,7 @@ function mainComponents (){
                 <p>Empower Tomorrow,</p>
                 <h2><span>TODOTHIS</span>Today!</h2>
             </article>
+            <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#a6a6a6" fill-opacity="1" d="M0,128L21.8,144C43.6,160,87,192,131,170.7C174.5,149,218,75,262,74.7C305.5,75,349,149,393,160C436.4,171,480,117,524,106.7C567.3,96,611,128,655,117.3C698.2,107,742,53,785,32C829.1,11,873,21,916,53.3C960,85,1004,139,1047,181.3C1090.9,224,1135,256,1178,245.3C1221.8,235,1265,181,1309,149.3C1352.7,117,1396,107,1418,101.3L1440,96L1440,320L1418.2,320C1396.4,320,1353,320,1309,320C1265.5,320,1222,320,1178,320C1134.5,320,1091,320,1047,320C1003.6,320,960,320,916,320C872.7,320,829,320,785,320C741.8,320,698,320,655,320C610.9,320,567,320,524,320C480,320,436,320,393,320C349.1,320,305,320,262,320C218.2,320,175,320,131,320C87.3,320,44,320,22,320L0,320Z"></path></svg>
         `;
         return mainHome
     }
@@ -43,6 +54,7 @@ function mainComponents (){
         mainTasks.innerHTML = `
             <h3 id="tasksPanel">TASKS</h3>
             <main class="tasksMain">
+                <svg class="tasksAdd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
             </main>
         `;
         return mainTasks;
@@ -55,6 +67,7 @@ function mainComponents (){
         mainNotes.innerHTML = `
             <h3 id="notesPanel">NOTES</h3>
             <main class="notesMain">
+                <svg class="notesAdd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
             </main>
         `;
 
@@ -73,9 +86,15 @@ function mainComponents (){
     }
 
     //Add button
-    const addTag = () => {
+    // const asideTag = () => {
+    //     const mainAside = document.createElement('aside');
+    //     mainAside.classList.add('mainAside');
+    //     mainAside.innerHTML = `
+            
+    //     `;
 
-    }
+    //     return mainAside;
+    // }
     
 
     //append Tag
