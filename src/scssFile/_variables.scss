@@ -1,3 +1,31 @@
+
+@mixin AnchortagAfter(){
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out; 
+}
+@mixin AnchorTagHover(){
+    transform: scaleX(1);
+    transform-origin: bottom left; 
+}
+
 .special-btn{
     background-color: red;
+    color: black;
+    transition: ease-in-out 1s;
+    &::after{
+        @include AnchortagAfter();
+        height: 0px;
+        bottom: 0px;
+    }
+    &:hover:after{
+        @include AnchorTagHover();
+    }
 }
