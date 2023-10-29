@@ -1,6 +1,5 @@
 import './scssFile/style.scss';
 
-
 //Remove Class
 export const removeClass = (anchorTag) => {
     anchorTag.forEach(key => key.classList.remove('special-btn'));
@@ -14,11 +13,11 @@ export const removeClass = (anchorTag) => {
  */
 export const changeNav = (event, anchorTag) => {
     const classToAnchor = {
-        'mainHome-btn': 0,
-        'mainTasks-btn': 1,
-        'mainNotes-btn': 2,
+        'mainHome': 0,
+        'mainTasks': 1,
+        'mainNotes': 2,
     };
-    const clickedClass = event.target.className;
+    const clickedClass = event.target.id;
     if (classToAnchor.hasOwnProperty(clickedClass)) {
         const buttonIndex = classToAnchor[clickedClass];
         // Add the 'special-btn' class to the corresponding button
