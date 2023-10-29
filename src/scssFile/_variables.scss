@@ -17,15 +17,13 @@
 }
 
 .special-btn{
+    @extend .mainBtn;
     background-color: red;
     color: black;
-    transition: ease-in-out 1s;
     &::after{
-        @include AnchortagAfter();
-        height: 0px;
-        bottom: 0px;
+        height: 0;
     }
-    &:hover:after{
-        @include AnchorTagHover();
+    &:hover::after{
+        background-color: transparent;
     }
 }
