@@ -23,7 +23,7 @@ body{
     margin: 0 auto;
     position: relative;
 }
-header{
+.mainHeader{
     width: 95%;
     height:  50px;
     background-color: rgba(0, 0, 0, 0.3);
@@ -48,9 +48,7 @@ header{
         width: 30%;
         justify-content: flex-end;
         column-gap: .5rem;
-        
-        a{
-            background-color: transparent;
+        .mainBtn{
             text-decoration: none;
             border: none;
             width: 33.3%;
@@ -59,9 +57,9 @@ header{
             padding: .5rem;
             border-radius: 5px;
             position: relative;
-            color: #ffffff;
             cursor: pointer;
-            &:after{
+            color: #ffffff;
+            &::after{
                 @include AnchortagAfter();
             }
             &:hover::after{
@@ -75,9 +73,7 @@ header{
     height: 100vh;
     width: 100%;
     display: flex;
-    // flex-direction: column;
     align-items: center;
-    // justify-content: center;
     scroll-margin-top: 60px;
     position: relative;
     article{
@@ -135,18 +131,6 @@ header{
         background-color: rgba(0, 0, 0, 0.3);
         border-radius: 5px;
         position: relative;
-        .tasksAdd{
-            position: absolute;
-            height: 50px;
-            width: 50px;
-            bottom: 10px;
-            right: 10px;
-            cursor: pointer;
-            &:hover{
-                fill: red;
-                transform: scale(1.1);
-            }
-        }
     }
     
 }
@@ -158,8 +142,17 @@ header{
     .notesMain{
         @extend .tasksMain;
         height: 78%;
-        .notesAdd{
-            @extend .tasksAdd;
+    }
+}
+.mainAdd{
+    height: 30px;
+    width: 30px;
+    margin-left: .2rem;
+    .AddIcon{
+        fill: #ffffff;
+        &:hover{
+            transform: scale(1.1);
+            fill: red;
         }
     }
 }
