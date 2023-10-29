@@ -18,12 +18,23 @@ function mainComponents (){
                 <a class="mainTasks-btn" href="#tasksPanel">Tasks</a>
                 <a class="mainNotes-btn" href="#notesPanel">Notes</a>
             </nav>
+            <aside class="mainAdd">
+                <svg class="AddIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
+            </aside>
         `;
         const allAnchor = Array.from(mainHeader.querySelectorAll('a'));
         const mainNav = mainHeader.querySelector('.mainNav').addEventListener('click', function(e){
             import('./command').then(module => {
                 module.removeClass(allAnchor);
                 module.changeNav(e, allAnchor)
+            }).catch(error => {
+                console.error('Error while importing module: ', error);
+            });
+        });
+
+        const appendModal = mainHeader.querySelector('aside').addEventListener('click', () => {
+            import('./modals').then(module => {
+                module.addModals();
             }).catch(error => {
                 console.error('Error while importing module: ', error);
             });
@@ -54,18 +65,8 @@ function mainComponents (){
         mainTasks.innerHTML = `
             <h3 id="tasksPanel">TASKS</h3>
             <main class="tasksMain">
-                <svg class="tasksAdd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
             </main>
         `;
-
-        //Show Tasks Modals
-        const tasksBtn = mainTasks.querySelector('.tasksAdd').addEventListener('click', () => {
-            const mainModals = document.createElement('div');
-            mainModals.classList.add('mainModals');
-            const tasksModalMain = mainModals.createElement('main');
-            tasksModalMain.classList.add('tasksModalMain');
-            
-        });
 
         return mainTasks;
     }
@@ -77,7 +78,6 @@ function mainComponents (){
         mainNotes.innerHTML = `
             <h3 id="notesPanel">NOTES</h3>
             <main class="notesMain">
-                <svg class="notesAdd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus-circle</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
             </main>
         `;
 
