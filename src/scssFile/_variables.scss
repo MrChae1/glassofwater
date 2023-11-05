@@ -22,8 +22,9 @@
     transition: ease-in-out 1s;
     &::after{
         @include AnchortagAfter();
-        height: 0px;
-        bottom: 0px;
+        height: 0;
+        bottom: 0;
+        // background-color: transparent;
     }
     &:hover:after{
         @include AnchorTagHover();
