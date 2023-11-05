@@ -54,10 +54,19 @@
     padding: 1.2rem .5rem;
     border-right: 2px solid rgba(0, 0, 0, 0.2);
     // margin-top: 10px;
-    .Addmodal{
+    button{
         padding: .5rem;
         border-radius: 5px;
-        font-weight: bold;     
+        font-weight: bold;
+        position: relative;
+        background-color: transparent;
+        cursor: pointer;
+        &::after{
+            @include AnchortagAfter();
+        }
+        &:hover::after{
+            @include AnchorTagHover();
+        }     
     }
 }
 .Addmodal-Aside{
@@ -92,13 +101,17 @@
         height: 80%;
     }   
 }
+.tasks-Only{
+    display: flex;
+    align-items: center;
+}
 label{
     font-weight: bold;
 }
 .Prioritymodal-Section{
     width: 75%;
-    display: flex;
     justify-content: center;
+    // margin-top: 5px;
     .PriorityContainer{
         width: 100%;
         display: grid;
@@ -156,6 +169,7 @@ label{
         font-size: 10px;
         border-radius: 5px;
         background-color: rgb(0, 0, 0, .2);
+        cursor: pointer;
         &:hover{
             background-color: red;
             color: black;
