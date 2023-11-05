@@ -10,19 +10,19 @@ export const addModals = () => {
                 <h4 class="Addmodal-Exit">X</h4>
             </header>
             <nav class="Addmodal-Nav">
-                <a class="Addmodal special-btn" id="Addmodal-Tasks">Tasks</a>
-                <a class="Addmodal" id="Addmodal-Tasks">Notes</a>
+                <button class="Addmodal special-btn" id="Addmodal-Tasks">Tasks</button>
+                <button class="Addmodal" id="Addmodal-Tasks">Notes</button>
             </nav>
             <aside class="Addmodal-Aside">
                 <section class="inputs">
                     <input class="input-title" type="text" placeholder="TITLE">
                     <textarea class="text-description" name="text-description" id="description" cols="30" rows="10" placeholder="Tell something about this..."></textarea>
                 </section>
-                <section class="dates">
+                <section class="dates tasks-Only">
                     <label for="tasksDates">Due Dates: </label>
                     <input type="date" id="tasksDates">   
                 </section>
-                <section class="Prioritymodal-Section">
+                <section class="Prioritymodal-Section tasks-Only">
                     <div class="PriorityContainer">
                         <h3>Priority:</h3>
                         <div class="prio-btn">
@@ -38,6 +38,9 @@ export const addModals = () => {
             <section>
         </div>
     `;
+    const addModalNav = addModal.querySelector('.Addmodal-Nav').addEventListener('click', () =>{
+        
+    });
 
     document.body.style.overflow = 'hidden';
     document.body.appendChild(addModal);
